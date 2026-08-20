@@ -30,41 +30,35 @@ Finding leads manually on Instagram takes a lot of time. You have to open accoun
 
 This project automates the process with an Instagram data scraper that finds profiles using target hashtags, extracts public contact info, and stores everything in a structured database.
 
-### Key Capabilities
+## What It Can Do
 * Collects public Instagram profile data, bios, and business emails.
 * Runs concurrent hashtag discovery jobs across 50+ streams.
 * Uses proxy rotation to avoid rate limits and blocks.
 * Stores clean, deduplicated contact records in PostgreSQL.
 * Allows one-click CSV export ready for email outreach.
 
-## Core Features
-| Feature | Description |
-|---|---|
-| Hashtag Discovery | Finds public posts across 50+ hashtag streams at the same time |
-| Profile Lead Extraction | Pulls public emails, names, follower counts, bios, and profile URLs |
-| Duplicate Removal | Automatically updates existing profiles without creating duplicate rows |
-| Proxy Rotation | Uses residential and mobile proxies with delays to keep scrapers safe |
-| Queue Controls | Add, remove, pause, or resume individual hashtag tasks |
-| PostgreSQL Storage | Saves all scraped data cleanly into a relational database |
-| One-Click CSV Export | Download your filtered lead lists straight to CSV format |
+## Features
+* **Hashtag Discovery Engine:** Scrapes public posts across 50+ concurrent hashtag streams.
+* **Structured Lead Extraction:** Pulls public emails, names, follower counts, bios, and profile URLs without login walls.
+* **Automated Deduplication:** Validates records and merges existing contacts in PostgreSQL without creating duplicate rows.
+* **Proxy Rotation & Jitter:** Uses residential and mobile proxies with randomized delays to avoid rate limits and blocks.
+* **Queue Management:** Easily add, remove, pause, or resume individual hashtag scraping tasks.
+* **Relational Storage:** Saves and structures all scraped data cleanly into a PostgreSQL database.
+* **One-Click CSV Export:** Filter leads by niche or follower count and download clean spreadsheet lists.
 
-## How It Works
-| Step | Description |
-|---|---|
-| **1. Input Hashtags** | Add your target niche hashtags (e.g., `#ecommerce`, `#b2bmarketing`) |
-| **2. Post Discovery** | The scraper finds public posts under those hashtags |
-| **3. Profile Extraction** | Visits public profiles to extract contact information and stats |
-| **4. Clean & Save** | Removes duplicates and saves structured data to PostgreSQL |
-| **5. Export Leads** | Filter your leads and export them as a CSV spreadsheet |
+## Workflow
+1. **Input / Queue:** Add target niche hashtags (e.g., `#ecommerce`, `#b2bmarketing`) to the queue.
+2. **Post Discovery:** The scraper finds recent public posts across all target hashtag streams.
+3. **Profile Extraction:** Fetches public user profiles to extract verified emails, bios, follower counts, and links.
+4. **Deduplication & Storage:** Validates records, discards duplicates, and saves structured leads into PostgreSQL.
+5. **Export & Outreach:** Filter by niche or follower threshold and download clean CSV lists ready for campaigns.
 
 ## Tech Stack
-| Component | Description |
-|---|---|
-| **Language** | Python |
-| **Engine / APIs** | Private Mobile API & Python Graph API Wrappers |
-| **Database** | PostgreSQL |
-| **Libraries** | Requests, Psycopg2, Pydantic, PyYAML |
-| **Demo Walkthrough** | [Watch System Demo on YouTube](https://youtu.be/u2YJMTuWC84) |
+* **Language:** Python 3.10+
+* **APIs & Extraction:** Instagram Private Mobile API & Python Graph API Wrappers
+* **Database:** PostgreSQL
+* **Libraries:** Requests, Psycopg2, Pydantic, PyYAML
+* **Demo Video:** [Watch System Demo on YouTube](https://youtu.be/u2YJMTuWC84)
 
 ## Directory Structure
 ```text
@@ -88,3 +82,28 @@ Instagram-Data-Scraper/
 │   └── raw/
 ├── requirements.txt
 └── README.md
+```
+## Who it's for
+* **Agencies & B2B Teams:** Scrape targeted niche profiles to build high-converting cold email outreach lists.
+* **E-commerce Brands:** Discover active micro-influencers by filtering follower metrics and bio keywords.
+* **Growth Marketers:** Extract public business contacts and audience signals directly from competitor hashtags.
+* **Data Engineers:** Integrate structured profile data into analytics dashboards, CRMs, or downstream pipelines.
+
+## FAQs
+**How to scrape Instagram data?**<br>
+Instagram data can be scraped by querying public endpoints and parsing rendered profile metadata in a controlled environment. This project uses endpoint handlers, rate limiting, and proxy rotation to extract structured profile information and emails consistently.
+
+**Does this support scrape Instagram without login?**<br>
+Yes. The scraper operates on public endpoints and session simulation, allowing public profile and hashtag discovery without requiring personal account login credentials.
+
+**Is this similar to an Apify Instagram scrape workflow?**<br>
+The architecture follows similar principles—such as queue-based crawling, proxy management, and structured data export—while being optimized for local execution, self-hosting, and full pipeline control.
+
+**Can it export directly to CSV and databases?**<br>
+Yes. In addition to direct PostgreSQL database storage and deduplication, the system supports one-click filtered exports directly into CSV format.
+
+**How does it handle layout and endpoint changes?**<br>
+The scraper uses dynamic field validation with fallback parsing logic to adapt to platform UI shifts and internal schema updates without breaking the scraping pipeline.
+
+**Does this use Instagram Graph API or Private APIs?**<br>
+This project uses public mobile API endpoint logic and Graph API protocol wrappers[cite: 1] to capture public contact signals, bios, and follower stats without typical Graph API access restrictions.
