@@ -41,7 +41,7 @@ This project automates the process with an Instagram data scraper that finds pro
 * **Hashtag Discovery Engine:** Scrapes public posts across 50+ concurrent hashtag streams.
 * **Structured Lead Extraction:** Pulls public emails, names, follower counts, bios, and profile URLs without login walls.
 * **Automated Deduplication:** Validates records and merges existing contacts in PostgreSQL without creating duplicate rows.
-* **Proxy Rotation & Jitter:** Uses residential and mobile proxies with randomized delays to avoid rate limits and blocks.
+* **Proxy Rotation:** Uses residential and mobile proxies with randomized delays to avoid rate limits and blocks.
 * **Queue Management:** Easily add, remove, pause, or resume individual hashtag scraping tasks.
 * **Relational Storage:** Saves and structures all scraped data cleanly into a PostgreSQL database.
 * **One-Click CSV Export:** Filter leads by niche or follower count and download clean spreadsheet lists.
