@@ -97,7 +97,7 @@ Instagram data can be scraped by querying public endpoints and parsing rendered 
 Yes. The scraper operates on public endpoints and session simulation, allowing public profile and hashtag discovery without requiring personal account login credentials.
 
 **Is this similar to an Apify Instagram scrape workflow?**<br>
-The architecture follows similar principles—such as queue-based crawling, proxy management, and structured data export—while being optimized for local execution, self-hosting, and full pipeline control.
+The architecture follows similar principles like queue-based crawling, proxy management, and structured data export while being optimized for local execution, self-hosting, and full pipeline control.
 
 **Can it export directly to CSV and databases?**<br>
 Yes. In addition to direct PostgreSQL database storage and deduplication, the system supports one-click filtered exports directly into CSV format.
@@ -106,4 +106,4 @@ Yes. In addition to direct PostgreSQL database storage and deduplication, the sy
 The scraper uses dynamic field validation with fallback parsing logic to adapt to platform UI shifts and internal schema updates without breaking the scraping pipeline.
 
 **Does this use Instagram Graph API or Private APIs?**<br>
-This project uses public mobile API endpoint logic and Graph API protocol wrappers[cite: 1] to capture public contact signals, bios, and follower stats without typical Graph API access restrictions.
+This project uses public mobile API endpoint logic and Graph API protocol wrappers to capture public contact signals, bios, and follower stats without typical Graph API access restrictions.
